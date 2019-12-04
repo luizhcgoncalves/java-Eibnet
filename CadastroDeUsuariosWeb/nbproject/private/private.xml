@@ -5,10 +5,14 @@
         <group>
             <file>file:/C:/Users/luizh/OneDrive/Documentos/NetBeansProjects/CadastroDeUsuariosWeb/src/java/model/Usuario.java</file>
             <file>file:/C:/Users/luizh/OneDrive/Documentos/NetBeansProjects/CadastroDeUsuariosWeb/web/tarefas.jsp</file>
+            <file>file:/C:/Users/luizh/OneDrive/Documentos/NetBeansProjects/CadastroDeUsuariosWeb/src/java/Servlet/CadastrarTarefas.java</file>
+            <file>file:/C:/Users/luizh/OneDrive/Documentos/NetBeansProjects/CadastroDeUsuariosWeb/src/java/Servlet/EditarTarefas.java</file>
             <file>file:/C:/Users/luizh/OneDrive/Documentos/NetBeansProjects/CadastroDeUsuariosWeb/src/java/dao/UsuarioDAO.java</file>
             <file>file:/C:/Users/luizh/OneDrive/Documentos/NetBeansProjects/CadastroDeUsuariosWeb/src/java/Servlet/CadastroServlet.java</file>
             <file>file:/C:/Users/luizh/OneDrive/Documentos/NetBeansProjects/CadastroDeUsuariosWeb/src/java/Servlet/LoginServlet.java</file>
+            <file>file:/C:/Users/luizh/OneDrive/Documentos/NetBeansProjects/CadastroDeUsuariosWeb/src/java/Servlet/ListarTarefas.java</file>
             <file>file:/C:/Users/luizh/OneDrive/Documentos/NetBeansProjects/CadastroDeUsuariosWeb/web/login.jsp</file>
+            <file>file:/C:/Users/luizh/OneDrive/Documentos/NetBeansProjects/CadastroDeUsuariosWeb/src/java/Servlet/ExcluirTarefas.java</file>
         </group>
     </open-files>
 </project-private>

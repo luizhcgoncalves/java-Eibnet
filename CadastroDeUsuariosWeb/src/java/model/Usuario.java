@@ -6,12 +6,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Usuario {
 
     private Integer id;
     private String email;
     private String password;
+    private ArrayList<Tarefa> tarefas;
 
     public Usuario(String email, String password) {
         this.email = email;
@@ -46,6 +48,14 @@ public class Usuario {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public ArrayList<Tarefa> getTarefas() {
+        return tarefas;
+    }
+
+    public void setTarefas(ArrayList<Tarefa> tarefas) {
+        this.tarefas = tarefas;
     }
 
     public static boolean verificarEmail(String email) {
