@@ -1,0 +1,43 @@
+<%@ page pageEncoding="UTF-8" %>
+
+<%@include file="msucesso.jspf" %>
+
+<form method="POST" action="FinalizarTarefaServlet">
+    <div class="panel panel-primary" style="width: 50%">
+        <div class="panel-heading" align="left">Lista de tarefas</div>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></th>
+                    <th>Descrição</th>
+                    <th>Finalizada</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <c:forEach items="${tarefas}" var="t">
+                <tr>
+                    <td><input type="checkbox" name="tarefas" value="${t.idTarefa}" /></td>
+                    <td>
+                    <c:if test="ImagemTarefaServlet?imagem=${t.nomeImagem} != null">
+                        <img src="ImagemTarefaServlet?imagem=${t.nomeImagem}" width="64" height="64">
+                    </c:if> 
+                    ${t.descricao}</td>
+                    <td>
+                        <c:if test="${t.finalizada}">
+                        Sim
+                        </c:if>
+                        <c:if test="${!t.finalizada}">
+                        Não
+                        </c:if>
+                    </td>
+                </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+
+    </div>
+    <input type="submit" value="Finalizar tarefas selecionadas" class="btn btn-info" />
+</form>
+<%@include file="merro.jspf" %>

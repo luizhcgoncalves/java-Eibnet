@@ -1,0 +1,17 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<%
+    String erro = (String) request.getAttribute("erro");
+%>
+<div id="mensagemErro">
+    <% try { %>
+    <% if (erro.length() > 0) {%>
+    <div class="alert alert-danger">
+        <p>
+            <%= "<strong>AVISO: </strong>" + erro%>
+        </p>
+    </div>
+    <% } %>
+    <% } catch (Exception e) { %>
+    <% }%>
+</div>

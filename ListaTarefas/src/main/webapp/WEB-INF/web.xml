@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <!-- Páginas de erro - Início -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/404.html</location>
+    </error-page>
+    <error-page>
+        <error-code>405</error-code>
+        <location>/WEB-INF/405.html</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/500.html</location>
+    </error-page>
+    <!-- Páginas de erro - Fim -->
+    <!-- Filtros - Início -->
+    <filter>
+        <description>Evita o acesso a páginas restritas a usuários autenticados</description>
+        <filter-name>Autenticacao</filter-name>
+        <filter-class>filtro.AutenticacaoFilter</filter-class>
+    </filter>
+    <filter>
+        <description>Redireciona o usuário para a página de cadastro de novas tarefas caso o usuário não tenha nenhuma tarefa cadastrada</description>
+        <filter-name>SemTarefasFilter</filter-name>
+        <filter-class>filtro.SemTarefasFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SemTarefasFilter</filter-name>
+        <servlet-name>EditarTarefas</servlet-name>
+        <servlet-name>ExcluirTarefas</servlet-name>
+        <servlet-name>ListarTarefas</servlet-name>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>Autenticacao</filter-name>
+        <url-pattern>*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
+    <!-- Filtros - Fim -->
+    <!-- Servlets - Início -->
+    <servlet>
+        <description>Permite a edição das tarefas cadastradas no perfil do usuário autenticado</description>
+        <servlet-name>EditarTarefas</servlet-name>
+        <servlet-class>Servlet.tarefas.EditarTarefas</servlet-class>
+    </servlet>
+    <servlet>
+        <description>Permite a exclusão das tarefas registradas para o usuário autenticado</description>
+        <servlet-name>ExcluirTarefas</servlet-name>
+        <servlet-class>Servlet.tarefas.ExcluirTarefas</servlet-class>
+    </servlet>
+    <servlet>
+        <description>Lista as tarefas do usuário autenticado</description>
+        <servlet-name>ListarTarefas</servlet-name>
+        <servlet-class>Servlet.tarefas.ListarTarefas</servlet-class>
+    </servlet>
+    <!-- Servlets - Fim -->
+    <servlet-mapping>
+        <servlet-name>ListarTarefas</servlet-name>
+        <url-pattern>/ListarTarefas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirTarefas</servlet-name>
+        <url-pattern>/ExcluirTarefas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarTarefas</servlet-name>
+        <url-pattern>/EditarTarefas</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
